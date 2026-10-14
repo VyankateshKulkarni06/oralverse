@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+  <defs>
+    <linearGradient id="ovGrad" x1="10" y1="10" x2="90" y2="90" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#0891b2" />
+      <stop offset="50%" stop-color="#0e7490" />
+      <stop offset="100%" stop-color="#0f766e" />
+    </linearGradient>
+    <linearGradient id="orbitGrad" x1="0" y1="50" x2="100" y2="50" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#22d3ee" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#0d9488" stop-opacity="0.2" />
+    </linearGradient>
+  </defs>
+  <!-- Background subtle clinical disc -->
+  <circle cx="50" cy="50" r="48" fill="#f0fdfa" stroke="#ccfbf1" stroke-width="1.5" />
+  
+  <!-- Outer orbital lens / universe ellipse representing OralVerse visual intelligence -->
+  <ellipse cx="50" cy="50" rx="38" ry="16" transform="rotate(-28 50 50)" stroke="url(#orbitGrad)" stroke-width="2.5" stroke-dasharray="4 2" />
+  
+  <!-- Modern Geometric Tooth Silhouette -->
+  <path d="M35 34 C35 24, 45 23, 50 28 C55 23, 65 24, 65 34 C65 42, 63 52, 60 68 C58 76, 54 77, 51 68 C50 65, 49 65, 48 68 C45 77, 41 76, 39 68 C36 52, 35 42, 35 34 Z" 
+        fill="url(#ovGrad)" />
+        
+  <!-- Clinical optical crosshairs / focal aperture dot -->
+  <circle cx="50" cy="42" r="3.5" fill="#ffffff" />
+  <circle cx="50" cy="42" r="1.5" fill="#0891b2" />
+  
+  <!-- Satellite intelligence node -->
+  <circle cx="78" cy="38" r="3.5" fill="#06b6d4" />
+  <circle cx="22" cy="62" r="2.5" fill="#14b8a6" />
+</svg>
