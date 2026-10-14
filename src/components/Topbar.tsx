@@ -42,6 +42,10 @@ export const Topbar: React.FC<TopbarProps> = ({
   const unreadCount = notifications.filter((n) => !n.read).length;
 
   const pageTitles: Record<PageId, { title: string; subtitle: string }> = {
+    landing: {
+      title: 'Platform Overview',
+      subtitle: 'Public product identity, capabilities, and clinical mission',
+    },
     overview: {
       title: 'Overview Dashboard',
       subtitle: 'Clinical review metrics & recent intraoral cases',

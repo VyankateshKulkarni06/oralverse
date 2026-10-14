@@ -15,6 +15,7 @@ import {
 import { BrandLogo } from './BrandLogo';
 
 export type PageId =
+  | 'landing'
   | 'overview'
   | 'new-analysis'
   | 'cases'
@@ -265,6 +266,22 @@ export const Sidebar: React.FC<SidebarProps> = ({
               Intraoral photo segmentation & visual landmarks active.
             </p>
           </div>
+
+          <button
+            onClick={() => onNavigate('landing')}
+            className="nav-item"
+            style={{
+              width: '100%',
+              border: 'none',
+              textAlign: 'left',
+              color: '#0e7490',
+              fontSize: '0.8125rem',
+              fontWeight: 600,
+            }}
+          >
+            <Sparkles size={16} color="#0e7490" />
+            <span>Platform Overview Page</span>
+          </button>
 
           <button
             onClick={() => onNavigate('settings')}

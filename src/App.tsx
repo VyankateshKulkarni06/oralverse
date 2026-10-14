@@ -3,6 +3,7 @@ import { Sidebar, PageId } from './components/Sidebar';
 import { Topbar } from './components/Topbar';
 import { SafetyBanner } from './components/SafetyBanner';
 import { ToastContainer, ToastItem } from './components/ToastContainer';
+import { LandingPage } from './pages/LandingPage';
 import { OverviewPage } from './pages/OverviewPage';
 import { NewAnalysisPage } from './pages/NewAnalysisPage';
 import { CasesPage } from './pages/CasesPage';
@@ -19,7 +20,8 @@ import {
 import { CaseItem, CaseReviewStatus, UserPreferences, NotificationItem } from './types';
 
 export const App: React.FC = () => {
-  const [currentPage, setCurrentPage] = useState<PageId>('overview');
+  // Start on the Landing Page containing full info and features of platform by Asymptote AI
+  const [currentPage, setCurrentPage] = useState<PageId>('landing');
   const [cases, setCases] = useState<CaseItem[]>(MOCK_CASES);
   const [selectedCaseId, setSelectedCaseId] = useState<string>('OV-DEMO-1042');
   const [notifications, setNotifications] = useState<NotificationItem[]>(INITIAL_NOTIFICATIONS);
@@ -39,6 +41,13 @@ export const App: React.FC = () => {
 
   const handleDismissToast = (id: string) => {
     setToasts((prev) => prev.filter((t) => t.id !== id));
+  };
+
+  // Launch Demo from Landing Page into Overview
+  const handleLaunchDemoFromLanding = () => {
+    setCurrentPage('overview');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    showToast('Welcome to OralVerse Clinical Demo Workspace!');
   };
 
   // Navigate to Case Review with a specific case
@@ -101,6 +110,25 @@ export const App: React.FC = () => {
   const currentCase = cases.find((c) => c.id === selectedCaseId) || cases[0];
   const awaitingCount = cases.filter((c) => c.reviewStatus === 'ready').length;
 
+  // Render Full Landing Page if on landing
+  if (currentPage === 'landing') {
+    return (
+      <div style={{ minHeight: '100vh', backgroundColor: '#ffffff' }}>
+        <LandingPage
+          onLaunchDemo={handleLaunchDemoFromLanding}
+          onExploreCaseReview={() => {
+            setSelectedCaseId('OV-DEMO-1042');
+            setCurrentPage('case-review');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            showToast('Loaded Case Review Studio for Case OV-DEMO-1042');
+          }}
+        />
+        <ToastContainer toasts={toasts} onDismiss={handleDismissToast} />
+      </div>
+    );
+  }
+
+  // Clinical Platform Shell (Overview, Cases, Case Review, etc.)
   return (
     <div className="app-layout">
       {/* Sidebar Navigation */}
